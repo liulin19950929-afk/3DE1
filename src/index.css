@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b0f14;
+  --panel: #111820;
+  --panel2: #161f2a;
+  --line: #22303f;
+  --text: #dbe6f2;
+  --muted: #8ba0b6;
+  --accent: #38bdf8;
+  --accent2: #22d3ee;
+  --warn: #fbbf24;
+  --ok: #34d399;
+  --danger: #f87171;
+}
+
+html.light {
+  --bg: #eef2f6;
+  --panel: #ffffff;
+  --panel2: #f5f8fb;
+  --line: #d5dfe9;
+  --text: #16202b;
+  --muted: #5b6b7c;
+  --accent: #0284c7;
+  --accent2: #0891b2;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans SC", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+.panel2 {
+  background: var(--panel2);
+  border: 1px solid var(--line);
+}
+.hairline {
+  border-color: var(--line);
+}
+.muted {
+  color: var(--muted);
+}
+.accent {
+  color: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn.active {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #04121c;
+  font-weight: 600;
+}
+.btn.primary:hover {
+  filter: brightness(1.1);
+  color: #04121c;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.btn.sm {
+  padding: 3px 7px;
+  font-size: 11px;
+}
+
+.inp {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 4px 8px;
+  color: var(--text);
+  font-size: 12px;
+  outline: none;
+  width: 100%;
+}
+.inp:focus {
+  border-color: var(--accent);
+}
+select.inp {
+  cursor: pointer;
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  padding: 6px 2px;
+  border-radius: 8px;
+  font-size: 10px;
+  line-height: 1.1;
+  color: var(--muted);
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-align: center;
+}
+.tool:hover {
+  background: var(--panel2);
+  color: var(--text);
+}
+.tool.on {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.tool .ic {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 11px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.chip.on {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.chip.off {
+  opacity: 0.42;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+table.grid th,
+table.grid td {
+  border: 1px solid var(--line);
+  padding: 7px 10px;
+  font-size: 12.5px;
+  text-align: left;
+  vertical-align: top;
+}
+table.grid th {
+  background: var(--panel2);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.scroll {
+  overflow: auto;
+}
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade {
+  animation: fadeIn 0.18s ease-out;
+}
